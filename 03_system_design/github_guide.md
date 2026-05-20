@@ -1,17 +1,18 @@
 # GitHub 구성 가이드
 
-> 작성일: 2025-05-19  
+> 작성일: 2026-05-19
+> 최종 수정: 2026-05-20
 > organization: github.com/turtle-restaurant
 
 ---
 
 ## 레포지토리 구성
 
-| 레포 | URL | 공개 | 로컬 경로 |
-|------|-----|------|-----------|
-| `docs` | github.com/turtle-restaurant/docs | Public | `obsidian/.../turtle-restaurant/` |
-| `game` | github.com/turtle-restaurant/game | Public | `project/turtle-restaurant/` |
-| `design` | github.com/turtle-restaurant/design | Public | (design 레포 별도 클론 예정) |
+| 레포 | URL | 공개 | 로컬 경로 | 상태 |
+|------|-----|------|-----------|------|
+| `docs` | github.com/turtle-restaurant/docs | Public | `/Users/ciny/Desktop/my/obsidian/ciny/02_study/Projects/turtle-restaurant` | ✅ push 완료 |
+| `game` | github.com/turtle-restaurant/game | Public | `/Users/ciny/Desktop/my/work/turtle-restaurant` | ✅ push 완료 |
+| `design` | github.com/turtle-restaurant/design | Public | (별도 클론 예정) | 🔲 미사용 |
 
 ---
 
@@ -21,108 +22,67 @@
 ```
 main          ← 안정 버전, 릴리즈 태그
   └─ develop  ← 통합 개발 브랜치
-       ├─ feature/core-loop        ← 기능 개발
-       ├─ feature/minigame-stack   ← 기능 개발
-       └─ fix/customer-ai-bug      ← 버그 수정
+       ├─ feature/core-loop
+       ├─ feature/minigame-timing-cook
+       ├─ feature/festival-minigames
+       └─ fix/버그명
 ```
 
 **커밋 메시지 규칙**
 ```
-feat: 샌드위치 미니게임 드래그 구현
+feat: 타이밍 쿡 판정 로직 구현
 fix: 손님 대기 타이머 오류 수정
 docs: GameManager 주석 추가
 refactor: Customer 클래스 리팩토링
 chore: .gitignore 업데이트
 ```
 
-### docs 레포 (문서)
+### docs 레포
 ```
-main  ← 단일 브랜치 (문서는 브랜치 불필요)
-```
-
-### design 레포 (에셋)
-```
-main  ← 단일 브랜치
+main ← 단일 브랜치 (push.sh로 자동 push)
 ```
 
----
-
-## GitHub Projects 구성
-
-### 프로젝트명: 거북이식당 개발 로드맵
-
-**Board 뷰 (칸반)**
-
-| 🗂 백로그 | 🔧 진행 중 | 👀 리뷰 | ✅ 완료 |
-|----------|-----------|---------|--------|
-| 기능 아이디어, 예정 작업 | 현재 작업 중인 것 (WIP 1~2개) | 테스트·검토 필요 | 완성된 작업 |
-
-**이슈 라벨 구성**
-| 라벨 | 색상 | 용도 |
-|------|------|------|
-| `feat` | 🟢 초록 | 새 기능 |
-| `fix` | 🔴 빨강 | 버그 수정 |
-| `design` | 🟣 보라 | 아트/UI |
-| `docs` | 🔵 파랑 | 문서 작업 |
-| `balance` | 🟡 노랑 | 밸런스 조정 |
-| `milestone` | 🟠 주황 | 마일스톤 |
-
-**마일스톤 (6개월)**
-- M1: 코어 루프 완성 (3~7주차)
-- M2: 미니게임 4종 완성 (8~14주차)
-- M3: 시스템 완성 (15~20주차)
-- M4: 출시 (21~24주차)
-
----
-
-## 로컬 Git 초기화 명령어
-
-### 1. docs 레포
-```bash
-cd /Users/ciny/Desktop/my/obsidian/ciny/02_study/Projects/turtle-restaurant
-git init
-git remote add origin https://github.com/turtle-restaurant/docs.git
-git add .
-git commit -m "docs: 프로젝트 초기 문서 구조 생성"
-git branch -M main
-git push -u origin main
+### design 레포
 ```
-
-### 2. game 레포
-```bash
-cd /Users/ciny/Desktop/my/work/tsquare/project/turtle-restaurant
-git init
-git remote add origin https://github.com/turtle-restaurant/game.git
-git add .
-git commit -m "chore: Godot 프로젝트 초기 구조 생성"
-git branch -M main
-git push -u origin main
-
-# develop 브랜치 생성
-git checkout -b develop
-git push -u origin develop
-```
-
-### 3. design 레포
-```bash
-# 원하는 위치에 클론 후 사용
-git clone https://github.com/turtle-restaurant/design.git
+main ← 단일 브랜치
 ```
 
 ---
 
-## 자동화: 문서 에이전트 → GitHub 연동 흐름
+## GitHub Projects 구성 ✅ 완료
+
+**보드 뷰 (칸반)**
+
+| 백로그 | 진행 중 | 리뷰 | 완료 |
+|--------|---------|------|------|
+| 기능 아이디어, 예정 작업 | WIP (1~2개 제한) | 테스트·검토 필요 | 완성 |
+
+**이슈 라벨**
+| 라벨 | 용도 |
+|------|------|
+| `feat` | 새 기능 |
+| `fix` | 버그 수정 |
+| `design` | 아트/UI |
+| `docs` | 문서 작업 |
+| `balance` | 밸런스 조정 |
+| `chore` | 환경/설정 |
+
+**마일스톤 ✅ 등록 완료**
+| 마일스톤 | 기간 |
+|----------|------|
+| M1 — 환경 세팅 & GDD 완성 | 2026-05-19 ~ 2026-06-07 |
+| M2 — 코어 루프 프로토타입 | 2026-06-08 ~ 2026-07-12 |
+| M3 — 미니게임 및 콘텐츠 | 2026-07-13 ~ 2026-08-30 |
+| M4 — QA / 밸런싱 | 2026-08-31 ~ 2026-09-27 |
+
+---
+
+## docs 자동 push
 
 ```
-Claude가 MD 파일 생성/수정
+Claude가 MD 파일 생성/수정 (MCP Filesystem)
       ↓
-터미널에서 수동 push (또는 자동화)
+terminal MCP로 push.sh 자동 실행
       ↓
-GitHub docs 레포 업데이트
-      ↓
-GitHub Pages로 퍼블리싱 (선택)
+github.com/turtle-restaurant/docs 반영
 ```
-
-### 선택: GitHub Pages 설정
-docs 레포 → Settings → Pages → Branch: main / folder: / (root)  
-→ `https://turtle-restaurant.github.io/docs` 로 문서 공개 가능
