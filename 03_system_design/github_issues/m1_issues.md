@@ -41,7 +41,7 @@
 - [x] 오케스트레이터 Claude Project 세팅 (Instructions + Knowledge)
 - [x] 해상도 기준 변경 — 390×844 → 1920×1080 (환경별 유연 대응)
 - [x] 브랜치 전략 적용 (game 레포 develop 브랜치 생성)
-- [ ] Claude Code 설치 및 프로젝트 연결
+- [x] Claude Code 설치 및 프로젝트 연결
 
 ## feat
 
