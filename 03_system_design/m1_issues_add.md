@@ -10,24 +10,24 @@
 
 ### docs
 
-| 라벨 | 제목 | 비고 |
-|------|------|------|
-| `docs` | GDD_game.md 작성 — 메인 게임 상세 설계 | 완료 |
-| `docs` | GDD_story.md 작성 — 손님 시스템 및 에피소드 | 완료 |
-| `docs` | GDD_gold.md 작성 — 재화 및 경제 시스템 | 완료 |
-| `docs` | GDD_BM.md 작성 — 비즈니스 모델 | 완료 |
-| `docs` | GDD_level.md 작성 — 레벨 디자인 초안 | 완료 |
-| `docs` | GDD 문서 분리 구조 전환 (단일 → 6개 파일) | 완료 |
-| `docs` | 메인게임 와이어프레임 작성 및 99_sources 등록 | 완료 |
+| 라벨     | 제목                              | 비고  |
+| ------ | ------------------------------- | --- |
+| `docs` | GDD_game.md 작성 — 메인 게임 상세 설계    | 완료  |
+| `docs` | GDD_story.md 작성 — 손님 시스템 및 에피소드 | 완료  |
+| `docs` | GDD_gold.md 작성 — 재화 및 경제 시스템    | 완료  |
+| `docs` | GDD_BM.md 작성 — 비즈니스 모델          | 완료  |
+| `docs` | GDD_level.md 작성 — 레벨 디자인 초안     | 완료  |
+| `docs` | GDD 문서 분리 구조 전환 (단일 → 6개 파일)    | 완료  |
+| `docs` | 메인게임 와이어프레임 작성 및 99_sources 등록  | 완료  |
 
 ### chore
 
-| 라벨 | 제목 | 비고 |
-|------|------|------|
-| `chore` | 오케스트레이터 Claude Project 세팅 (Instructions + Knowledge) | 완료 |
-| `chore` | 해상도 기준 변경 — 390×844 → 1920×1080 (환경별 유연 대응) | 완료 |
-| `chore` | ai_orchestration.md 현행화 (경로 수정, 이슈 관리 방침 반영) | 완료 |
-| `chore` | github_issues.md 삭제 (GitHub Projects 직접 관리로 전환) | 완료 |
+| 라벨      | 제목                                                   | 비고  |
+| ------- | ---------------------------------------------------- | --- |
+| `chore` | 오케스트레이터 Claude Project 세팅 (Instructions + Knowledge) | 완료  |
+| `chore` | 해상도 기준 변경 — 390×844 → 1920×1080 (환경별 유연 대응)          | 완료  |
+| `chore` | ai_orchestration.md 현행화 (경로 수정, 이슈 관리 방침 반영)         | 완료  |
+| `chore` | github_issues.md 삭제 (GitHub Projects 직접 관리로 전환)      | 완료  |
 
 ---
 
@@ -43,4 +43,3 @@
 | 로컬 git 초기화 + 첫 push | 완료 |
 | GitHub Projects 보드 + 마일스톤 4개 세팅 | 완료 |
 | Claude Code 설치 및 프로젝트 연결 | 완료 |
-| 핵심 데이터 JSON 설계 | 완료 |
