@@ -10,6 +10,7 @@
 | 날짜 | 파일명 | 프롬프트 요약 | Seed | 비고 |
 |------|--------|--------------|------|------|
 | 2026-05-21 | turtle_main_test.png | cute turtle chef, white apron, happy, studio ghibli style | 1031735232 | 테스트 생성 |
+| 2026-05-25 | turtle_default_test.png | cute turtle chef, white apron, neutral, full body, chibi, pastel watercolor | 1784888829 | 테스트 생성 |
 
 ---
 
@@ -18,3 +19,4 @@
 | Seed | 파일명 | 특징 |
 |------|--------|------|
 | 1031735232 | turtle_main_test.png | 첫 테스트, 기본 거북이 캐릭터 |
+| 1784888829 | turtle_default_test.png | 중립 표정, 풌라이 애이콘, 파스텔 수체화 |

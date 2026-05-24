@@ -78,8 +78,8 @@ ciny 작업 요청
 
 | 구분 | 경로 |
 |------|------|
-| 문서 (Obsidian) | /Users/ciny/Desktop/my/obsidian/ciny/02_study/Projects/turtle-restaurant |
-| 코드 (Godot) | /Users/ciny/Desktop/my/work/turtle-restaurant |
+| 문서 (Obsidian) | (문서경로) |
+| 코드 (Godot) | (코드경로) |
 | GitHub docs | github.com/turtle-restaurant/docs |
 | GitHub game | github.com/turtle-restaurant/game |
 

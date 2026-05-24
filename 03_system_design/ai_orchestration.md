@@ -38,10 +38,10 @@ ciny (기획자)
 
 ## 에이전트 구성
 
-| 역할 | Project | 도구 | 담당 업무 |
-|------|---------|------|-----------|
-| 오케스트레이터 | 거북이식당 오케스트레이터 | Claude.ai | 기획/문서/QA 통합 처리, 작업 분해 |
-| 아트 에이전트 | 거북이식당 아트 에이전트 | Claude.ai + ComfyUI MCP | 이미지 생성, 에셋 관리, 프롬프트 이력 |
+| 역할      | Project       | 도구                                     | 담당 업무                       |
+| ------- | ------------- | -------------------------------------- | --------------------------- |
+| 오케스트레이터 | 거북이식당 오케스트레이터 | Claude.ai                              | 기획/문서/QA 통합 처리, 작업 분해       |
+| 아트 에이전트 | 거북이식당 아트 에이전트 | Claude.ai + ComfyUI MCP                | 이미지 생성, 에셋 관리, 프롬프트 이력      |
 | 코드 에이전트 | 거북이식당 코드 에이전트 | Claude.ai + terminal MCP + Claude Code | GDScript 생성, 씬 구조 설계, 버그 수정 |
 
 ---
@@ -55,10 +55,8 @@ ciny (기획자)
 | comfyui | comfyui-mcp (로컬 빌드) | ComfyUI API 호출, 이미지 생성 |
 
 ### 허용 경로 (filesystem MCP)
-- `/Users/ciny/Desktop/my/obsidian/ciny/02_study/Projects/turtle-restaurant`
-- `/Users/ciny/Desktop/my/work/turtle-restaurant`
-- `/Users/ciny/Desktop/my/work/tsquare/project`
-- `/Users/ciny/Desktop/my/study/checkinhome-be`
+- `(문서경로)`
+- `(코드경로)`
 
 ---
 
@@ -68,7 +66,7 @@ ciny (기획자)
 - Claude.ai (아트 에이전트 Project)
 - ComfyUI 0.22.0 (로컬, 포트 8188)
 - Stable Diffusion 모델: anything-v5.safetensors
-- MCP: comfyui-mcp (`~/comfyui-mcp/dist/index.js`)
+- MCP: comfyui-mcp (`(로컬경로)/comfyui-mcp/dist/index.js`)
 
 ### 실행 흐름
 ```
@@ -77,7 +75,7 @@ ciny: 이미지 생성 요청
 아트 에이전트: ComfyUI 실행 여부 확인 (http://127.0.0.1:8188)
       ↓ 미실행 시
 ciny: ComfyUI 수동 실행
-      cd ~/ComfyUI && source venv/bin/activate && python main.py --listen 0.0.0.0 --port 8188
+      cd (로컬경로)/ComfyUI && source venv/bin/activate && python main.py --listen 0.0.0.0 --port 8188
       ↓ 실행 확인 후
 아트 에이전트: art_guide.md 스타일 기준으로 프롬프트 구성
       ↓
@@ -149,10 +147,10 @@ Claude Code: GDScript 파일 생성/수정
 
 | 구분 | 경로 |
 |------|------|
-| 문서 (Obsidian) | /Users/ciny/Desktop/my/obsidian/ciny/02_study/Projects/turtle-restaurant |
-| 코드 (Godot) | /Users/ciny/Desktop/my/work/turtle-restaurant |
-| ComfyUI | ~/ComfyUI |
-| comfyui-mcp | ~/comfyui-mcp |
+| 문서 (Obsidian) | (문서경로) |
+| 코드 (Godot) | (코드경로) |
+| ComfyUI | (로컬경로)/ComfyUI |
+| comfyui-mcp | (로컬경로)/comfyui-mcp |
 | GitHub docs | github.com/turtle-restaurant/docs |
 | GitHub game | github.com/turtle-restaurant/game |
 

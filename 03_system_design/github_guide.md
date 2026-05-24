@@ -10,8 +10,8 @@
 
 | 레포 | URL | 공개 | 로컬 경로 | 상태 |
 |------|-----|------|-----------|------|
-| `docs` | github.com/turtle-restaurant/docs | Public | `/Users/ciny/Desktop/my/obsidian/ciny/02_study/Projects/turtle-restaurant` | ✅ push 완료 |
-| `game` | github.com/turtle-restaurant/game | Public | `/Users/ciny/Desktop/my/work/turtle-restaurant` | ✅ push 완료 |
+| `docs` | github.com/turtle-restaurant/docs | Public | `(문서경로)` | ✅ push 완료 |
+| `game` | github.com/turtle-restaurant/game | Public | `(코드경로)` | ✅ push 완료 |
 | `design` | github.com/turtle-restaurant/design | Public | (별도 클론 예정) | 🔲 미사용 |
 
 ---
