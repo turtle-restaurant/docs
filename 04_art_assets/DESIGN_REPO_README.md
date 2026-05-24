@@ -1,53 +1,43 @@
-# 🐢 거북이식당 — 디자인 에셋
+# 거북이식당 — 아트 에셋
 
-> **turtle-restaurant / design** | Public  
-> 아트 에셋, UI 디자인, Midjourney 프롬프트 아카이브
-
----
-
-## 이 레포에 대해
-
-거북이식당의 모든 시각적 결과물과 제작 과정을 관리합니다.
-AI(Midjourney, Adobe Firefly)로 생성한 에셋의 프롬프트와 원본을 보존합니다.
+> docs 레포 내 아트 에셋 관리 폴더
 
 ---
 
 ## 폴더 구조
 
 ```
-design/
-├── characters/        # 캐릭터 스프라이트 원본
-│   ├── turtle/        # 주인공 거북이
-│   ├── korean/        # 한식 테마 손님
-│   ├── western/       # 양식 테마 손님
-│   ├── japanese/      # 일식 테마 손님
-│   └── chinese/       # 중식 테마 손님
-├── ui/                # UI 컴포넌트
-│   ├── hud/           # 게임 내 HUD
-│   ├── shop/          # 상점 UI
-│   └── popup/         # 팝업, 말풍선
-├── food/              # 음식 아이템 아이콘
-├── backgrounds/       # 배경 이미지
-├── prompts/           # Midjourney 프롬프트 아카이브
-│   └── prompt_log.md  # 프롬프트 이력 관리
-└── style_guide.md     # 아트 스타일 가이드
+04_art_assets/
+├── art_style_guide.md   # 아트 스타일 가이드 (현행)
+├── prompt_log.md        # ComfyUI 프롬프트 생성 이력
+└── DESIGN_REPO_README.md
 ```
 
----
+## 에셋 생성 도구
 
-## 아트 스타일
+- **이미지 생성**: ComfyUI (로컬 서버, 포트 8188) → MCP 연동
+- **저장 경로**: `/work/turtle-restaurant/assets/`
+- **스타일 기준**: `art_style_guide.md` 참고
 
-- **톤**: 파스텔 + 스케치톤
-- **질감**: 수채화, 손그림 느낌
-- **레퍼런스**: Studio Ghibli 배경, 동물의 숲 캐릭터 느낌
+## 에셋 목록 (생성 예정)
 
-자세한 내용 → [style_guide.md](./style_guide.md)
+### 캐릭터
 
----
+- [ ] 일반 손님 4종 (참새 / 쥐 / 고양이 / 강아지) — 기본 표정
+- [ ] 에피소드 손님 — 호랑님 (기본 / 기쁨 / 슬픔 / 놀람)
+- [ ] 에피소드 손님 — 추가 5종 (구상 중)
 
-## 관련 레포지토리
+### 음식
 
-| 레포 | 설명 |
-|------|------|
-| [turtle-restaurant/docs](https://github.com/turtle-restaurant/docs) | 개발 문서, 개발일지 |
-| [turtle-restaurant/game](https://github.com/turtle-restaurant/game) | Godot 4 게임 코드 |
+- [ ] 밥류: 쌀밥, 잡곡밥
+- [ ] 국/찌개: 미역국, 김치찌개, 콩나물국
+- [ ] 메인반찬: 불고기, 생선구이, 닭갈비
+- [ ] 서브반찬: 배추김치, 쌈채소
+
+### 배경/UI
+
+- [ ] 식당 내부 배경
+- [ ] 조리기구 (냄비 / 프라이팬 / 밥솥 / 반찬통)
+- [ ] 주문서 UI
+- [ ] 버튼 / 아이콘 세트
+

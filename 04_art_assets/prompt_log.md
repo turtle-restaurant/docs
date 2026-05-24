@@ -1,22 +1,19 @@
-# 프롬프트 이력 로그
+# ComfyUI 프롬프트 생성 이력
 
-> 이 파일은 아트 에이전트가 자동으로 관리합니다.
-> 이미지 생성 시마다 아래 표에 자동 추가됩니다.
+> 이미지 생성 시마다 아래 표에 추가.
+> 프롬프트 기준: `art_style_guide.md` 섹션 3.4 (음식) / 4.5 (캐릭터)
 
 ---
 
 ## 생성 이력
 
-| 날짜 | 파일명 | 프롬프트 요약 | Seed | 비고 |
-|------|--------|--------------|------|------|
-| 2026-05-21 | turtle_main_test.png | cute turtle chef, white apron, happy, studio ghibli style | 1031735232 | 테스트 생성 |
-| 2026-05-25 | turtle_default_test.png | cute turtle chef, white apron, neutral, full body, chibi, pastel watercolor | 1784888829 | 테스트 생성 |
+| 날짜 | 파일명 | 카테고리 | 프롬프트 요약 | Seed | 비고 |
+|------|--------|----------|-------------|------|------|
 
 ---
 
-## 재사용 가능한 Seed 목록
+## 재사용 가능한 Seed
 
 | Seed | 파일명 | 특징 |
 |------|--------|------|
-| 1031735232 | turtle_main_test.png | 첫 테스트, 기본 거북이 캐릭터 |
-| 1784888829 | turtle_default_test.png | 중립 표정, 풌라이 애이콘, 파스텔 수체화 |
+
