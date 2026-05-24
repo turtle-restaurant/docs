@@ -8,6 +8,9 @@
 .obsidian/workspace-mobile.json
 .obsidian/cache
 
+# 로컬 환경 변수 (경로 등 민감 정보 포함)
+.env.sh
+
 # 임시 파일
 *.tmp
 *.bak
