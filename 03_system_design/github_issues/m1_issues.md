@@ -55,4 +55,7 @@
 ## feat
 
 - [x] 프로젝트 폴더 구조 확정 (scenes / scripts / assets / data)
-- [ ] 핵심 데이터 JSON 설계 (recipes.json / customers.json / episodes.json)
+- [x] 핵심 데이터 JSON 설계 (recipes.json / customers.json / episodes.json)
+  - recipes.json v1.0: 레시피 10종 — 재료/조리기구/조리시간/판매가/접시형태/필수여부 정의
+  - customers.json v1.0: 일반 손님 4종 / 에피소드 손님 6종 — 인내심 타이머/골드배율/에피소드 완료 후 처리 정의
+  - episodes.json v1.0: 에피소드 6종 — 호랑님 회차 구조 확정, 나머지 5종 미확정(unplanned) 플레이스홀더
