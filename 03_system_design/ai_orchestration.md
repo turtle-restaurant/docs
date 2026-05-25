@@ -1,7 +1,7 @@
 # AI 오케스트레이션 시스템 설계
 
 > 작성일: 2026-05-19
-> 버전: v2.0
+> 버전: v2.1
 > 최종 수정: 2026-05-25
 
 ---
@@ -14,6 +14,7 @@
 | 2026-05-21 | v1.2 | 코드 에이전트 도구 변경, 실행 흐름 추가 |
 | 2026-05-25 | v1.3 | 변경 이력 테이블 추가 |
 | 2026-05-25 | v2.0 | 아트 에이전트 도구 변경 (Midjourney → ComfyUI+SD), MCP 구성 전면 업데이트, Project 구조 정리, Knowledge 운영 방식 추가 |
+| 2026-05-25 | v2.1 | 아트 에이전트 이미지 생성 방식 변경 (ComfyUI+SD → Claude.ai 직접 생성) |
 
 ---
 
@@ -28,7 +29,7 @@ ciny (기획자)
       └── QA 파트: 테스트 시나리오
 
 아트 에이전트 Project (Claude.ai)
-      └── 이미지 생성 파트: ComfyUI MCP → SD 로컬 생성 → assets/ 저장
+      └── 이미지 생성 파트: Claude.ai 이미지 생성 → assets/ 저장
 
 코드 에이전트 Project (Claude.ai) ← M2 착수 시 추가
       └── 코드 파트: terminal MCP → Claude Code → GDScript 생성
@@ -41,7 +42,7 @@ ciny (기획자)
 | 역할      | Project       | 도구                                     | 담당 업무                       |
 | ------- | ------------- | -------------------------------------- | --------------------------- |
 | 오케스트레이터 | 거북이식당 오케스트레이터 | Claude.ai                              | 기획/문서/QA 통합 처리, 작업 분해       |
-| 아트 에이전트 | 거북이식당 아트 에이전트 | Claude.ai + ComfyUI MCP                | 이미지 생성, 에셋 관리, 프롬프트 이력      |
+| 아트 에이전트 | 거북이식당 아트 에이전트 | Claude.ai                              | 이미지 생성, 에셋 관리, 프롬프트 이력      |
 | 코드 에이전트 | 거북이식당 코드 에이전트 | Claude.ai + terminal MCP + Claude Code | GDScript 생성, 씬 구조 설계, 버그 수정 |
 
 ---
@@ -52,7 +53,6 @@ ciny (기획자)
 |----------|--------|------|
 | filesystem | @modelcontextprotocol/server-filesystem | 로컬 MD 파일 읽기/쓰기 |
 | terminal | @iflow-mcp/mcp-shell-server | git, bash 명령어 실행 |
-| comfyui | comfyui-mcp (로컬 빌드) | ComfyUI API 호출, 이미지 생성 |
 
 ### 허용 경로 (filesystem MCP)
 - `(문서경로)`
@@ -64,24 +64,17 @@ ciny (기획자)
 
 ### 도구 스택
 - Claude.ai (아트 에이전트 Project)
-- ComfyUI 0.22.0 (로컬, 포트 8188)
-- Stable Diffusion 모델: anything-v5.safetensors
-- MCP: comfyui-mcp (`(로컬경로)/comfyui-mcp/dist/index.js`)
+- 이미지 생성: Claude.ai 내장 이미지 생성 기능
 
 ### 실행 흐름
 ```
 ciny: 이미지 생성 요청
       ↓
-아트 에이전트: ComfyUI 실행 여부 확인 (http://127.0.0.1:8188)
-      ↓ 미실행 시
-ciny: ComfyUI 수동 실행
-      cd (로컬경로)/ComfyUI && source venv/bin/activate && python main.py --listen 0.0.0.0 --port 8188
-      ↓ 실행 확인 후
-아트 에이전트: art_guide.md 스타일 기준으로 프롬프트 구성
+아트 에이전트: art_style_guide.md 스타일 기준으로 프롬프트 구성
       ↓
-comfyui MCP: 이미지 생성 → assets/ 하위 경로 저장
+Claude.ai: 이미지 생성
       ↓
-아트 에이전트: prompt_log.md 기록 + art_guide.md 체크 + push
+아트 에이전트: 생성 이미지 assets/ 하위 경로 저장 + prompt_log.md 기록 + push
 ```
 
 ### 에셋 저장 경로
@@ -96,13 +89,9 @@ comfyui MCP: 이미지 생성 → assets/ 하위 경로 저장
 ### 기본 스타일 설정값
 | 항목 | 값 |
 |------|-----|
-| 모델 | anything-v5.safetensors |
-| model_family | sd15 |
-| style | anime |
-| artist_reference | studio ghibli |
-| quality | standard |
-| 캐릭터 해상도 | 512×512 |
-| 배경 해상도 | 768×512 |
+| 생성 도구 | Claude.ai 이미지 생성 |
+| 캐릭터 해상도 | 1:1 (정사각형) |
+| 배경 해상도 | 16:9 (가로형) |
 
 ---
 
@@ -145,14 +134,12 @@ Claude Code: GDScript 파일 생성/수정
 
 ## 경로 정보
 
-| 구분 | 경로 |
-|------|------|
-| 문서 (Obsidian) | (문서경로) |
-| 코드 (Godot) | (코드경로) |
-| ComfyUI | (로컬경로)/ComfyUI |
-| comfyui-mcp | (로컬경로)/comfyui-mcp |
-| GitHub docs | github.com/turtle-restaurant/docs |
-| GitHub game | github.com/turtle-restaurant/game |
+| 구분            | 경로                                |
+| ------------- | --------------------------------- |
+| 문서 (Obsidian) | (문서경로)                            |
+| 코드 (Godot)    | (코드경로)                            |
+| GitHub docs   | github.com/turtle-restaurant/docs |
+| GitHub game   | github.com/turtle-restaurant/game |
 
 ---
 
